@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+<a th:href="@{/newProduct}">
+<button style="position: relative; left: 50px; top: 30px">Add Product
+</button>
+</a>
+<section>
+    <!--for demo wrap-->
+    <h1>List of Products</h1>
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.getId()}"></td>
+                <td th:text="${product.getName()}"></td>
+                <td th:text="${product.getPrice()}"></td>
+                <td th:text="${product.getQuantity()}"></td>
+                <td th:text="${product.getDate()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<div style="font-size: small; padding-bottom: 10px; padding-top: 20px; position: relative; left: 50px">Total amount:</div>
+<div th:text="${total}" style="font-size: xx-large; position: relative; left: 50px; float: left;"></div>
+<form th:action="@{/amountOfOneProduct}" method="post">
+<div class="form__group field" style="float: right; position: relative; right: 240px; top: -40px">
+    <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+    <label for="name" class="form__label">Name</label>
+</div>
+
+<button type="submit" style="position: relative; left: 1380px; top: -20px"> Get
+</button>
+</form>
+
+</body>
+
+<script src="/js/script.js"></script>
+
+</html>

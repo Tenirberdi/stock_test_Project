@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="form-main">
+<div style=" display: flex;
+  justify-content: center; color: white; font-family: 'Calibri Light'; font-size: x-large">
+    <hgroups>
+        <h1>Inserting New Products</h1>
+    </hgroups>
+
+</div>
+
+
+    <div id="form-div">
+
+
+        <form class="form" id="form1" th:action="@{/addProduct}" method="post">
+
+            <p class="name">
+                <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="name" id="name" />
+            </p>
+
+            <p class="name">
+                <input name="price" type="number" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="price" id="price" />
+            </p>
+
+            <p class="name">
+                <input name="quantity" type="number" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="quantity" id="quantity" />
+            </p>
+
+            <p class="name">
+                <input name="date" type="date" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="date" id="date" />
+            </p>
+
+
+            <div class="submit">
+                <input type="submit" value="ADD" id="button-blue"/>
+                <div class="ease"></div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
